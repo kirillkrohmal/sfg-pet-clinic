@@ -1,15 +1,18 @@
 package guru.springframework.sfgpetclinic.model;
 
+import lombok.Builder;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table
+@MappedSuperclass
 public class Person {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id")
-    private Long id;
+    public Person(Long id, String firstName, String lastName) {
+        super(id);
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     @Column(name = "first_name")
     private String firstName;

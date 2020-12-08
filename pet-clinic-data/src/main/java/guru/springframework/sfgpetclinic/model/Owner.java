@@ -1,17 +1,26 @@
 package guru.springframework.sfgpetclinic.model;
 
+import lombok.Builder;
+
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
 @Table
 public class Owner extends Person {
+    @Builder
+    public Owner(Long id, String firstName, String lastName, String address, String city,
+                 String telephone, Set<Pet> pets) {
+        super(id, firstName, lastName);
+        this.address = address;
+        this.city = city;
+        this.telephone = telephone;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id")
-    private Long id;
-
+        if(pets != null) {
+            this.pets = pets;
+        }
+    }
     @Column(name = "address")
     private String address;
 
@@ -20,15 +29,6 @@ public class Owner extends Person {
 
     @Column(name = "telephone")
     private String telephone;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getAddress() {
         return address;
@@ -53,4 +53,6 @@ public class Owner extends Person {
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
+
+
 }
