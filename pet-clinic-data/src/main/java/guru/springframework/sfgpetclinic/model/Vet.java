@@ -1,8 +1,15 @@
 package guru.springframework.sfgpetclinic.model;
 
-public class Vet extends Person {
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-    public Long id;
+public class Vet extends Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id")
+    private Long id;
 
     public Long getId() {
         return id;
