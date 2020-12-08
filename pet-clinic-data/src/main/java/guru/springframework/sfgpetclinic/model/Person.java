@@ -1,12 +1,17 @@
 package guru.springframework.sfgpetclinic.model;
 
-import lombok.Builder;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @MappedSuperclass
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Person {
     public Person(Long id, String firstName, String lastName) {
         super(id);

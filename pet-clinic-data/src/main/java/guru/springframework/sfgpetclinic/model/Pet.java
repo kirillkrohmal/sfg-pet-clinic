@@ -1,6 +1,6 @@
 package guru.springframework.sfgpetclinic.model;
 
-import lombok.Builder;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -9,6 +9,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "pets")
 public class Pet {
     @Builder
@@ -25,14 +30,6 @@ public class Pet {
     }
     @Column(name = "name")
     private String name;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     @ManyToOne
     @JoinColumn(name = "type_id")
