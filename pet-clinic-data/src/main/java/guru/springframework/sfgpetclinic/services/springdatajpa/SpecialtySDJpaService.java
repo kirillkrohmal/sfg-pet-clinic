@@ -11,7 +11,8 @@ import java.util.Set;
 
 @Service
 public class SpecialtySDJpaService implements SpecialtyService {
-    private SpecialtyRepository specialtyRepository;
+
+    private final SpecialtyRepository specialtyRepository;
 
     @Autowired
     public SpecialtySDJpaService(SpecialtyRepository specialtyRepository) {
